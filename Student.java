@@ -5,15 +5,23 @@ public class Student {
     private String userID;
     ArrayList<String> answer = new ArrayList<>();
     
+
+
+    // Generate random ID when instantiated
     public Student() {
         userID = generateRanID();
     }
 
+
+
+    // generate random ID from 10000 to 99999
     private String generateRanID() {
         Random random = new Random();
         return String.valueOf(10000 + random.nextInt(90000));
     }
 
+
+    // Returns Student selected answers
     public ArrayList<String> getAnswer(){
         return answer;
     }
@@ -34,6 +42,7 @@ public class Student {
             for (int i=0; i<numChoices; i++) {
                 selectedAnswers.add(i);
             }
+            // remove duplicates
             Collections.shuffle(selectedAnswers);
 
             // Use random index locations to choose answers for multiple choice
