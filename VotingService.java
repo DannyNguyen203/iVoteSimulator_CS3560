@@ -25,10 +25,16 @@ public class VotingService {
 
             System.out.print("Answer for Student " + i + ": ");
             for (int j = 0; j < studentList.get(i).getAnswer().size(); j++) {
-                System.out.print(studentList.get(i).getAnswer().get(j));
+                String answer = studentList.get(i).getAnswer().get(j);
+                System.out.print(answer);
+                answerCount.put(answer, answerCount.getOrDefault(answer, 0) + 1);
             }
             System.out.println();
 
+        }
+
+        for (int i = 0; i < question.getAnswerChoices().size(); i++){
+            System.out.println(question.getAnswerChoices().get(i) + ": " + answerCount.get(question.getAnswerChoices().get(i)));
         }
 
 
